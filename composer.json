@@ -1,0 +1,14 @@
+{
+    "name": "solncebro/brain-games",
+    "bin": [
+	    "bin/brain-games"
+    ],
+    "description": "This is the first examination project of Hexlet PHP developer",
+    "authors": [
+        {
+            "name": "Andrei Kholkin",
+            "email": "virtual.exe@mail.ru"
+        }
+    ],
+    "require": {}
+}
