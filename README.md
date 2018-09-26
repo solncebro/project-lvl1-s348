@@ -1,2 +1,1 @@
-# project-lvl1-s348
-# project-lvl1-s348
+1. Установка пакета глобально https://asciinema.org/a/ik2XamElbmRwROriu8haox6iw
