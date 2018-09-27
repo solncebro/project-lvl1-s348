@@ -2,12 +2,37 @@
 
 namespace BrainGames\Games\Calc;
 
-use function \cli\line;
-use function \cli\prompt;
 use function BrainGames\Cli\question;
 use function BrainGames\Cli\answer;
 use function BrainGames\Cli\correct;
 use function BrainGames\Cli\wrong;
+use function BrainGames\Cli\congratulations;
+
+function runCalc()
+{
+    $rightAnswers = 0;
+    $requireRightAnswers = 3;
+    $gameArg = '';
+    do {
+        switch ($rightAnswers) {
+            case 0:
+                $gameArg = '+';
+                break;
+            case 1:
+                $gameArg = '-';
+                break;
+            case 2:
+                $gameArg = '*';
+                break;
+        }
+
+        $score = calc($gameArg);
+        if ($score) {
+            $rightAnswers++;
+        }
+    } while ($requireRightAnswers > $rightAnswers);
+    congratulations();
+}
 
 function calc($gameArg)
 {

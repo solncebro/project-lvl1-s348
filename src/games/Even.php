@@ -2,24 +2,26 @@
 
 namespace BrainGames\Games\Parity;
 
-use function \cli\line;
-use function \cli\prompt;
+use function BrainGames\Cli\question;
+use function BrainGames\Cli\answer;
+use function BrainGames\Cli\correct;
+use function BrainGames\Cli\wrong;
+use function BrainGames\Cli\congratulations;
 
-function gameParity()
+function runEven()
 {
-    $func = 'parity';
     $rightAnswers = 0;
     $requireRightAnswers = 3;
     do {
-        $score = $func($ar);
+        $score = even();
         if ($score) {
             $rightAnswers++;
         }
     } while ($requireRightAnswers > $rightAnswers);
-    line('Congratulations, %s', NAME);
+    congratulations();
 }
 
-function parity()
+function even()
 {
     $randomNumber = rand(1, 20);
     $parity = $randomNumber % 2;
@@ -29,16 +31,15 @@ function parity()
         $rightAnswer = 'yes';
     }
 
-    line('Question: %s', $randomNumber);
-    $answer = prompt('Your answer: ');
+    question($randomNumber);
+    $answer = answer();
 
 
     if ($rightAnswer == $answer) {
-        line('Correct!');
+        correct();
         return true;
     } else {
-        line('\'%s\' is wrong answer ;(. Correct answer was \'%s\'', $answer, $rightAnswer);
-        line('Let\'s try again, %s!', NAME);
+        wrong($answer, $rightAnswer);
         return false;
     }
 }

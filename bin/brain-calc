@@ -11,9 +11,9 @@ if (file_exists($autoloadPath1)) {
 use function BrainGames\Cli\run;
 use function BrainGames\Cli\descriptionCalc;
 use function BrainGames\Cli\askName;
-use function BrainGames\Game\runGame;
+use function BrainGames\Games\Calc\runCalc;
 
 run();
 descriptionCalc();
 askName();
-runGame('Calc');
+runCalc();

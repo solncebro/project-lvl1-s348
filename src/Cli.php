@@ -17,7 +17,7 @@ function askName()
     line("Hello, %s!", $name);
 }
 
-function descriptionParity()
+function descriptionEven()
 {
     line('Answer "yes" if number even otherwise answer "no".');
 }

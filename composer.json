@@ -18,8 +18,7 @@
       },
     "autoload": {
         "files": ["src/Cli.php",
-                    "src/Game.php",
-                    "src/games/Parity.php",
+                    "src/games/Even.php",
                     "src/games/Calc.php"
                 ]
     },
