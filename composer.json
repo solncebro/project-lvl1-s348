@@ -2,7 +2,8 @@
     "name": "solncebro/brain-games",
     "bin": [
         "bin/brain-games",
-        "bin/brain-even"
+        "bin/brain-even",
+        "bin/brain-calc"
     ],
     "description": "This is the first examination project of Hexlet PHP developer",
     "keywords": ["exam project", "game", "console"],
@@ -17,7 +18,9 @@
       },
     "autoload": {
         "files": ["src/Cli.php",
-                    "src/Parity.php"
+                    "src/Game.php",
+                    "src/games/Parity.php",
+                    "src/games/Calc.php"
                 ]
     },
     "require": {

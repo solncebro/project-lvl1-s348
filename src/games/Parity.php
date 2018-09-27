@@ -1,26 +1,27 @@
 <?php
 
-namespace BrainGames\Parity;
+namespace BrainGames\Games\Parity;
 
 use function \cli\line;
 use function \cli\prompt;
 
 function gameParity()
 {
-    $rightAnswer = 0;
+    $func = 'parity';
+    $rightAnswers = 0;
     $requireRightAnswers = 3;
     do {
-        $score = parity();
+        $score = $func($ar);
         if ($score) {
-            $rightAnswer++;
+            $rightAnswers++;
         }
-    } while ($requireRightAnswers > $rightAnswer);
+    } while ($requireRightAnswers > $rightAnswers);
     line('Congratulations, %s', NAME);
 }
 
 function parity()
 {
-    $randomNumber = rand(0, 20);
+    $randomNumber = rand(1, 20);
     $parity = $randomNumber % 2;
     if ($parity != 0) {
         $rightAnswer = 'no';

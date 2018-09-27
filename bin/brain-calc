@@ -9,11 +9,11 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 use function BrainGames\Cli\run;
-use function BrainGames\Cli\descriptionParity;
+use function BrainGames\Cli\descriptionCalc;
 use function BrainGames\Cli\askName;
-use function BrainGames\Games\Parity\gameParity;
+use function BrainGames\Game\runGame;
 
 run();
-descriptionParity();
+descriptionCalc();
 askName();
-gameParity();
+runGame('Calc');
