@@ -2,12 +2,29 @@
 
 namespace BrainGames\Games\Calc;
 
-use function BrainGames\Cli\question;
-use function BrainGames\Cli\answer;
-use function BrainGames\Cli\correct;
-use function BrainGames\Cli\wrong;
-use function BrainGames\Cli\congratulations;
+use function BrainGames\Cli\game;
 
+function createQuestion()
+{
+    $question = rand(1, 20);
+    $rightAnswer = isEven($question) ? 'no' : 'yes';
+
+    return [$question, $rightAnswer];
+}
+
+function isEven($num)
+{
+    return $num % 2;
+}
+
+function checkAnswer($rightAnswer, $userAnswer)
+{
+    return $rightAnswer == $userAnswer ? true : false;
+
+
+
+
+    
 function runCalc()
 {
     $rightAnswers = 0;
