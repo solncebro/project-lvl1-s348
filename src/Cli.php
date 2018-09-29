@@ -7,24 +7,16 @@ use function \cli\prompt;
 
 const ANSWERS_FOR_WIN = 3;
 
-function run($gameName = 'games', $gameMessage = '', $createQuestion = '')
+function run($createQuestion)
 {
     line('Welcome to the Brain Game!');
+    line(DESCRIPTION);
 
-    if ($gameName == 'games') {
-        greating();
-    } else {
-        line($gameMessage);
-        greating();
-        game($createQuestion);
-    }
-}
-
-function greating()
-{
     $name = prompt('May I have your name?');
     define('NAME', $name);
     line("Hello, %s!", $name);
+
+    game($createQuestion);
 }
 
 function game($createQuestion)
@@ -35,7 +27,7 @@ function game($createQuestion)
         line('Question: %s', $question);
         $userAnswer = prompt('Your answer');
         
-        if (checkAnswer($rightAnswer, $userAnswer)) {
+        if ($rightAnswer == $userAnswer) {
             line('Correct!');
             $i++;
         } else {
@@ -44,9 +36,4 @@ function game($createQuestion)
         }
     }
     line('Congratulations, %s!', NAME);
-}
-
-function checkAnswer($rightAnswer, $userAnswer)
-{
-    return $rightAnswer == $userAnswer ? true : false;
 }
