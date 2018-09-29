@@ -2,79 +2,32 @@
 
 namespace BrainGames\Games\Calc;
 
-use function BrainGames\Cli\game;
+use function BrainGames\Cli\run;
 
-function createQuestion()
-{
-    $question = rand(1, 20);
-    $rightAnswer = isEven($question) ? 'no' : 'yes';
-
-    return [$question, $rightAnswer];
-}
-
-function isEven($num)
-{
-    return $num % 2;
-}
-
-function checkAnswer($rightAnswer, $userAnswer)
-{
-    return $rightAnswer == $userAnswer ? true : false;
-}
-
-
-    
 function runCalc()
 {
-    $rightAnswers = 0;
-    $requireRightAnswers = 3;
-    $gameArg = '';
-    do {
-        switch ($rightAnswers) {
+    $gameName = 'Calc';
+    $gameMessage = 'What is the result of the expression?';
+
+    $createQuestion = function ($step) {
+        $randomNumber1 = rand(1, 99);
+        $randomNumber2 = rand(1, 99);
+        switch ($step) {
             case 0:
-                $gameArg = '+';
+                $question = "{$randomNumber1}" . " + " . "{$randomNumber2}";
+                $rightAnswer = $randomNumber1 + $randomNumber2;
                 break;
             case 1:
-                $gameArg = '-';
+                $question = "{$randomNumber1}" . " - " . "{$randomNumber2}";
+                $rightAnswer = $randomNumber1 - $randomNumber2;
                 break;
             case 2:
-                $gameArg = '*';
+                $question = "{$randomNumber1}" . " * " . "{$randomNumber2}";
+                $rightAnswer = $randomNumber1 * $randomNumber2;
                 break;
         }
+        return [$question, $rightAnswer];
+    };
 
-        $score = calc($gameArg);
-        if ($score) {
-            $rightAnswers++;
-        }
-    } while ($requireRightAnswers > $rightAnswers);
-    congratulations();
-}
-
-function calc($gameArg)
-{
-    $randomNumber1 = rand(1, 99);
-    $randomNumber2 = rand(1, 99);
-    switch ($gameArg) {
-        case '+':
-            $rightAnswer = $randomNumber1 + $randomNumber2;
-            break;
-        case '-':
-            $rightAnswer = $randomNumber1 - $randomNumber2;
-            break;
-        case '*':
-            $rightAnswer = $randomNumber1 * $randomNumber2;
-            break;
-    }
-
-    question("$randomNumber1 $gameArg $randomNumber2");
-    $answer = answer();
-
-
-    if ($rightAnswer == $answer) {
-        correct();
-        return true;
-    } else {
-        wrong($answer, $rightAnswer);
-        return false;
-    }
+    run($gameName, $gameMessage, $createQuestion);
 }

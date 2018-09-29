@@ -7,28 +7,16 @@ use function \cli\prompt;
 
 const ANSWERS_FOR_WIN = 3;
 
-function run()
+function run($gameName = 'games', $gameMessage = '', $createQuestion = '')
 {
     line('Welcome to the Brain Game!');
-    $scriptPath = explode('/', $_SERVER['SCRIPT_NAME']);
-    define("GAME_NAME", $scriptPath[sizeof($scriptPath) - 1]);
 
-    if (GAME_NAME == 'brain-games') {
+    if ($gameName == 'games') {
         greating();
     } else {
-        if (GAME_NAME == 'brain-even') {
-            $game = "Even";
-            line('Answer "yes" if number even otherwise answer "no".');
-        } elseif (GAME_NAME == 'brain-calc') {
-            $game = "Calc";
-            line('What is the result of the expression?');
-        }
-        
+        line($gameMessage);
         greating();
-        
-        $createQuestion = "BrainGames\Games\\" . $game . "\createQuestion";
-        $checkAnswer = "BrainGames\Games\\" . $game . "\checkAnswer";
-        game($createQuestion, $checkAnswer);
+        game($createQuestion);
     }
 }
 
@@ -39,15 +27,15 @@ function greating()
     line("Hello, %s!", $name);
 }
 
-function game($createQuestion, $checkAnswer)
+function game($createQuestion)
 {
     for ($i = 0; $i < ANSWERS_FOR_WIN;) {
-        [$question, $rightAnswer] = $createQuestion();
+        [$question, $rightAnswer] = $createQuestion($i);
 
         line('Question: %s', $question);
         $userAnswer = prompt('Your answer');
         
-        if ($checkAnswer($rightAnswer, $userAnswer)) {
+        if (checkAnswer($rightAnswer, $userAnswer)) {
             line('Correct!');
             $i++;
         } else {
@@ -56,4 +44,9 @@ function game($createQuestion, $checkAnswer)
         }
     }
     line('Congratulations, %s!', NAME);
+}
+
+function checkAnswer($rightAnswer, $userAnswer)
+{
+    return $rightAnswer == $userAnswer ? true : false;
 }

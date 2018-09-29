@@ -2,22 +2,25 @@
 
 namespace BrainGames\Games\Even;
 
-use function BrainGames\Cli\game;
+use function BrainGames\Cli\run;
 
-function createQuestion()
+function runEven()
 {
-    $question = rand(1, 20);
-    $rightAnswer = isEven($question) ? 'no' : 'yes';
+    $gameName = 'Even';
+    $gameMessage = 'Answer "yes" if number even otherwise answer "no".';
 
-    return [$question, $rightAnswer];
+
+    $createQuestion = function () {
+        $question = rand(1, 20);
+        $rightAnswer = isEven($question) ? 'no' : 'yes';
+
+        return [$question, $rightAnswer];
+    };
+
+    run($gameName, $gameMessage, $createQuestion);
 }
 
 function isEven($num)
 {
     return $num % 2;
-}
-
-function checkAnswer($rightAnswer, $userAnswer)
-{
-    return $rightAnswer == $userAnswer ? true : false;
 }
