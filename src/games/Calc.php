@@ -20,8 +20,7 @@ function isEven($num)
 function checkAnswer($rightAnswer, $userAnswer)
 {
     return $rightAnswer == $userAnswer ? true : false;
-
-
+}
 
 
     

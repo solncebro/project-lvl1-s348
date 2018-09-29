@@ -1,45 +1,23 @@
 <?php
 
-namespace BrainGames\Games\Parity;
+namespace BrainGames\Games\Even;
 
-use function BrainGames\Cli\question;
-use function BrainGames\Cli\answer;
-use function BrainGames\Cli\correct;
-use function BrainGames\Cli\wrong;
-use function BrainGames\Cli\congratulations;
+use function BrainGames\Cli\game;
 
-function runEven()
+function createQuestion()
 {
-    $rightAnswers = 0;
-    $requireRightAnswers = 3;
-    do {
-        $score = even();
-        if ($score) {
-            $rightAnswers++;
-        }
-    } while ($requireRightAnswers > $rightAnswers);
-    congratulations();
+    $question = rand(1, 20);
+    $rightAnswer = isEven($question) ? 'no' : 'yes';
+
+    return [$question, $rightAnswer];
 }
 
-function even()
+function isEven($num)
 {
-    $randomNumber = rand(1, 20);
-    $parity = $randomNumber % 2;
-    if ($parity != 0) {
-        $rightAnswer = 'no';
-    } else {
-        $rightAnswer = 'yes';
-    }
+    return $num % 2;
+}
 
-    question($randomNumber);
-    $answer = answer();
-
-
-    if ($rightAnswer == $answer) {
-        correct();
-        return true;
-    } else {
-        wrong($answer, $rightAnswer);
-        return false;
-    }
+function checkAnswer($rightAnswer, $userAnswer)
+{
+    return $rightAnswer == $userAnswer ? true : false;
 }
