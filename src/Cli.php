@@ -7,6 +7,7 @@ use function \cli\prompt;
 
 const ANSWERS_FOR_WIN = 3;
 
+
 function run($createQuestion)
 {
     line('Welcome to the Brain Game!');
