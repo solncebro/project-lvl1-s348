@@ -14,7 +14,7 @@ function runGCD()
         $randomNumber1 = rand(1, 99);
         $randomNumber2 = rand(1, 99);
         $rightAnswer = nod($randomNumber1, $randomNumber2);
-        $question = "{$randomNumber1}" . " " . "{$randomNumber2} (" ."{$rightAnswer}" . ")";
+        $question = "{$randomNumber1}" . " " . "{$randomNumber2}";
 
         return [$question, $rightAnswer];
     };
