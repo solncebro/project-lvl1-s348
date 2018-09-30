@@ -3,6 +3,7 @@
 3. Аскинема паката глобально и запуск brain-calc https://asciinema.org/a/wlOamAo155eG9GxMDwWgNv5so
 4. Аскинема паката глобально и запуск brain-gcd https://asciinema.org/a/qj3S3hTyfiyOtjlGQ2zWFfDN5
 5. Аскинема паката глобально и запуск brain-balance https://asciinema.org/a/iiDTQjVO5GdmHP8ltoi0jdpxH
+6. Аскинема паката глобально и запуск brain-progression https://asciinema.org/a/ZBfuE2dePmDnQnIH48EjDWnMj
 
 <a href="https://codeclimate.com/github/solncebro/project-lvl1-s348/maintainability"><img src="https://api.codeclimate.com/v1/badges/fd31dad86af6e2871a9a/maintainability" /></a>
 

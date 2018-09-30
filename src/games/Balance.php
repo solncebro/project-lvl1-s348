@@ -4,6 +4,8 @@ namespace BrainGames\Games\Balance;
 
 use function BrainGames\Cli\run;
 
+const DESCRIPTION = 'Balance the given number.';
+
 function runBalance()
 {
     $createQuestion = function () {
@@ -14,7 +16,7 @@ function runBalance()
         return [$question, (string)$rightAnswer];
     };
     
-    run($createQuestion);
+    run(DESCRIPTION, $createQuestion);
 }
 
 function balanced($num)

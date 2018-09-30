@@ -7,10 +7,10 @@ use function \cli\prompt;
 
 const TRIES = 3;
 
-function run($createQuestion)
+function run($gameDescription, $createQuestion)
 {
     line('Welcome to the Brain Game!');
-    line(DESCRIPTION);
+    line($gameDescription);
 
     $name = prompt('May I have your name?');
     define('NAME', $name);

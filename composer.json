@@ -6,7 +6,8 @@
         "bin/brain-calc",
         "bin/brain-gcd",
         "bin/brain-balance",
-        "bin/brain-progression"        
+        "bin/brain-progression",
+        "bin/brain-prime"        
     ],
     "description": "This is the first examination project of Hexlet PHP developer",
     "keywords": ["exam project", "game", "console"],
@@ -25,7 +26,8 @@
                     "src/games/Calc.php",
                     "src/games/GCD.php",
                     "src/games/Balance.php",
-                    "src/games/Progression.php"
+                    "src/games/Progression.php",
+                    "src/games/Prime.php"
                 ]
     },
     "require": {

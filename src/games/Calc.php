@@ -4,14 +4,16 @@ namespace BrainGames\Games\Calc;
 
 use function BrainGames\Cli\run;
 
+const DESCRIPTION = 'What is the result of the expression?';
+const MATHOPERATIONS = ['+', '-', '*'];
+
 function runCalc()
 {
     $createQuestion = function () {
-        $operations = ['+', '-', '*'];
-        $currOperation = array_rand($operations, 1);
+        $currOperation = array_rand(MATHOPERATIONS, 1);
         $randomNumber1 = rand(1, 10);
         $randomNumber2 = rand(1, 10);
-        switch ($operations[$currOperation]) {
+        switch (MATHOPERATIONS[$currOperation]) {
             case '+':
                 $question = "{$randomNumber1}" . " + " . "{$randomNumber2}";
                 $rightAnswer = $randomNumber1 + $randomNumber2;
@@ -28,5 +30,5 @@ function runCalc()
         return [$question, (string)$rightAnswer];
     };
 
-    run($createQuestion);
+    run(DESCRIPTION, $createQuestion);
 }

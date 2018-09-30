@@ -11,5 +11,4 @@ if (file_exists($autoloadPath1)) {
 
 use function BrainGames\Games\Calc\runCalc;
 
-const DESCRIPTION = 'What is the result of the expression?';
 runCalc();
