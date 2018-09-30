@@ -16,6 +16,7 @@ function runBalance()
         return [$question, $rightAnswer];
     };
 
+    
     run(DESCRIPTION, $createQuestion);
 }
 
