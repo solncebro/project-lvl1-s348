@@ -35,6 +35,7 @@ function dividers($num)
             $dividers[] = $i;
         }
     }
+    $dividers[] = $num;
     return $dividers;
 }
 

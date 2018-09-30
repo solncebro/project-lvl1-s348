@@ -4,6 +4,8 @@ namespace BrainGames\Games\Progression;
 
 use function BrainGames\Cli\run;
 
+const DESCRIPTION = 'What number is missing in this progression?';
+
 function runProgression()
 {
     $createQuestion = function () {
@@ -22,7 +24,7 @@ function runProgression()
         return [$question, (string)$rightAnswer];
     };
 
-    run($createQuestion);
+    run(DESCRIPTION, $createQuestion);
 }
 
 function buildProgression($firstNumber, $stepProgression, $lenghtRow)
