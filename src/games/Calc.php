@@ -4,8 +4,6 @@ namespace BrainGames\Games\Calc;
 
 use function BrainGames\Cli\run;
 
-const DESCRIPTION = 'What is the result of the expression?';
-
 function runCalc()
 {
     $createQuestion = function () {
@@ -27,8 +25,8 @@ function runCalc()
                 $rightAnswer = $randomNumber1 * $randomNumber2;
                 break;
         }
-        return [$question, $rightAnswer];
+        return [$question, (string)$rightAnswer];
     };
 
-    run(DESCRIPTION, $createQuestion);
+    run($createQuestion);
 }

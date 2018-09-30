@@ -9,7 +9,7 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-use function BrainGames\Games\Calc\runCalc;
+use function BrainGames\Games\Progression\runProgression;
 
-const DESCRIPTION = 'What is the result of the expression?';
-runCalc();
+const DESCRIPTION = 'What number is missing in this progression?';
+runProgression();

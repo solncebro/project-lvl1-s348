@@ -11,4 +11,5 @@ if (file_exists($autoloadPath1)) {
 
 use function BrainGames\Games\Even\runEven;
 
+const DESCRIPTION = 'Answer "yes" if number even otherwise answer "no".';
 runEven();

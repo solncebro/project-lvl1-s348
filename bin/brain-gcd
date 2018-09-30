@@ -11,4 +11,5 @@ if (file_exists($autoloadPath1)) {
 
 use function BrainGames\Games\GCD\runGCD;
 
+const DESCRIPTION = 'Find the greatest common divisor of given numbers.';
 runGCD();

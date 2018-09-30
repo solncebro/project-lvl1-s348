@@ -7,10 +7,10 @@ use function \cli\prompt;
 
 const TRIES = 3;
 
-function run($description, $createQuestion)
+function run($createQuestion)
 {
     line('Welcome to the Brain Game!');
-    line($description);
+    line(DESCRIPTION);
 
     $name = prompt('May I have your name?');
     define('NAME', $name);
@@ -27,11 +27,12 @@ function game($createQuestion)
         line('Question: %s', $question);
         $userAnswer = prompt('Your answer');
         
-        if ($rightAnswer == $userAnswer) {
+        if ($rightAnswer === $userAnswer) {
             line('Correct!');
         } else {
             line('\'%s\' is wrong answer ;(. Correct answer was \'%s\'', $userAnswer, $rightAnswer);
             line('Let\'s try again, %s!', NAME);
+            exit;
         }
     }
     line('Congratulations, %s!', NAME);

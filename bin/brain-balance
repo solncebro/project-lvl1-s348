@@ -11,4 +11,5 @@ if (file_exists($autoloadPath1)) {
 
 use function BrainGames\Games\Balance\runBalance;
 
+const DESCRIPTION = 'Balance the given number.';
 runBalance();
