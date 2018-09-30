@@ -4,24 +4,25 @@ namespace BrainGames\Games\Calc;
 
 use function BrainGames\Cli\run;
 
+const DESCRIPTION = 'What is the result of the expression?';
+
 function runCalc()
 {
-    $gameName = 'Calc';
-    $gameMessage = 'What is the result of the expression?';
-
-    $createQuestion = function ($step) {
-        $randomNumber1 = rand(1, 99);
-        $randomNumber2 = rand(1, 99);
-        switch ($step) {
-            case 0:
+    $createQuestion = function () {
+        $operations = ['+', '-', '*'];
+        $currOperation = array_rand($operations, 1);
+        $randomNumber1 = rand(1, 10);
+        $randomNumber2 = rand(1, 10);
+        switch ($operations[$currOperation]) {
+            case '+':
                 $question = "{$randomNumber1}" . " + " . "{$randomNumber2}";
                 $rightAnswer = $randomNumber1 + $randomNumber2;
                 break;
-            case 1:
+            case '-':
                 $question = "{$randomNumber1}" . " - " . "{$randomNumber2}";
                 $rightAnswer = $randomNumber1 - $randomNumber2;
                 break;
-            case 2:
+            case '*':
                 $question = "{$randomNumber1}" . " * " . "{$randomNumber2}";
                 $rightAnswer = $randomNumber1 * $randomNumber2;
                 break;
@@ -29,5 +30,5 @@ function runCalc()
         return [$question, $rightAnswer];
     };
 
-    run($gameName, $gameMessage, $createQuestion);
+    run(DESCRIPTION, $createQuestion);
 }

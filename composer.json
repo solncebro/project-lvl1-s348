@@ -4,7 +4,8 @@
         "bin/brain-games",
         "bin/brain-even",
         "bin/brain-calc",
-        "bin/brain-gcd"
+        "bin/brain-gcd",
+        "bin/brain-balance"
     ],
     "description": "This is the first examination project of Hexlet PHP developer",
     "keywords": ["exam project", "game", "console"],
@@ -21,7 +22,8 @@
         "files": ["src/Cli.php",
                     "src/games/Even.php",
                     "src/games/Calc.php",
-                    "src/games/GCD.php"
+                    "src/games/GCD.php",
+                    "src/games/Balance.php"
                 ]
     },
     "require": {

@@ -6,7 +6,6 @@ use function BrainGames\Cli\run;
 
 const DESCRIPTION = 'Answer "yes" if number even otherwise answer "no".';
 
-
 function runEven()
 {
     $createQuestion = function () {
@@ -16,7 +15,7 @@ function runEven()
         return [$question, $rightAnswer];
     };
 
-    run($createQuestion);
+    run(DESCRIPTION, $createQuestion);
 }
 
 function isEven($num)
