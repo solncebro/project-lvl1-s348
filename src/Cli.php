@@ -32,8 +32,10 @@ function game($createQuestion)
         } else {
             line('\'%s\' is wrong answer ;(. Correct answer was \'%s\'', $userAnswer, $rightAnswer);
             line('Let\'s try again, %s!', NAME);
-            exit;
+            break;
         }
     }
-    line('Congratulations, %s!', NAME);
+    if ($i === TRIES) {
+        line('Congratulations, %s!', NAME);
+    }
 }
